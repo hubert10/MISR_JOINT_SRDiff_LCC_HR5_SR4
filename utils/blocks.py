@@ -8,8 +8,8 @@ import torch.nn as nn
 from einops import rearrange
 from pathlib import Path
 import torch.nn.functional as F
-from timm.models.layers import DropPath
-from timm.models.layers import trunc_normal_, DropPath, to_2tuple
+from timm.layers import DropPath
+from timm.layers import trunc_normal_, DropPath, to_2tuple
 
 # I.2 MaskTransformer (Decoder):
 # code: https://github.com/rstrudel/segmenter/blob/master/segm/model/decoder.py

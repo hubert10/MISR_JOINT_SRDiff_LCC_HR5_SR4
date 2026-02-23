@@ -13,13 +13,13 @@ import timm
 import torch, os
 import torch.nn as nn
 from timm.models._efficientnet_blocks import SqueezeExcite, DepthwiseSeparableConv
-from timm.models.layers import drop_path, trunc_normal_, Mlp, DropPath
+from timm.layers import drop_path, trunc_normal_, Mlp, DropPath
 import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange, repeat
 import torch.utils.checkpoint as checkpoint
 import numpy as np
-from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+from timm.layers import DropPath, to_2tuple, trunc_normal_
 
 
 class ConvBNReLU(nn.Sequential):

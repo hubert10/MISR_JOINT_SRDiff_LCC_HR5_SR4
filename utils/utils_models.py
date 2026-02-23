@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import timm
-from timm.models.layers import trunc_normal_, DropPath, to_2tuple
+from timm.layers import trunc_normal_, DropPath, to_2tuple
 from timm.models.vision_transformer import _load_weights
 from einops import rearrange
 from abc import ABCMeta, abstractmethod

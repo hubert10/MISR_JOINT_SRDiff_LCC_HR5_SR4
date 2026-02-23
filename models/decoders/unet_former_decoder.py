@@ -9,7 +9,7 @@ Written by Christoph Reich
 """
 
 import torch, os
-from timm.models.layers import trunc_normal_, DropPath
+from timm.layers import trunc_normal_, DropPath
 import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange

@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import math
-from timm.models.layers import trunc_normal_
+from timm.layers import trunc_normal_
 
 
 class FFCA(nn.Module):

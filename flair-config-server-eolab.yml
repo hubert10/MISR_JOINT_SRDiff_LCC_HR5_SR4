@@ -66,6 +66,10 @@ pad_value: 0
 padding_mode: reflect
 val_percent: 0.9
 
+# sits Model
+n_head: 16
+d_model: 256
+
 # Swin-Conv Model
 img_size: 64
 decoder_channels: 256 
