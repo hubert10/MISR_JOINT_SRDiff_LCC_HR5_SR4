@@ -19,7 +19,8 @@ outputs:
 # "absolute path" and everything before them is discarded
 
 # Fusion
-sat_patch_size: 40  # in [8, 112] and multiple of 8 
+sat_patch_size: 64  # in [8, 112] and multiple of 8 
+sr_patch_size: 64
 
 loss_weights_aer_sat: [0.7, 0.3]
 loss_aux_sat_weight: 1.0
