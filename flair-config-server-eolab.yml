@@ -63,6 +63,7 @@ ref_year: 2021 # defined for whole dataset
 ref_date: 05-15 # defined for whole dataset
 pad_value: 0
 padding_mode: reflect
+val_percent: 0.9
 
 # Swin-Conv Model
 img_size: 64
