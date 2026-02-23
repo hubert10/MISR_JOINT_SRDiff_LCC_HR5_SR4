@@ -1,0 +1,124 @@
+base_config:
+  - ./diffsr_base.yaml
+  - ./df2k4x.yaml
+trainer_cls: tasks.srdiff.SRDiffTrainer
+
+# model
+unet_dim_mults: 1|2|4|8
+decay_steps: 100000
+hidden_size: 64
+rrdb_num_feat: 64
+
+# train and test
+batch_size: 5
+max_updates: 400000
+eval_batch_size: 5
+test_batch_size: 1
+val_check_interval: 400000
+save_ckpt_interval: 25000
+test_diff: true
+train_diffsr: true
+max_s2_images: 8
+use_highresnet_ltae: true
+use_rrdb_ltae: false
+misr_ref_image: closest
+misr: true
+sr_scale: 6.25
+
+main_loss_weight: 1.0
+
+px_loss_weight: 1.0
+grad_px_loss_weight: 0.5
+temp_grad_mag_loss_weight: 0.2
+gray_value_px_loss_weight: 1.0
+
+
+# 1. pixel: 1.0
+
+# Applies to: pixel_wise_closest_sr_sits_aer_loss(x0_pred, img_hr, closest_idx)
+# Meaning: This loss enforces pixel-level alignment between your super-resolved satellite image and the closest high-resolution aerial image.
+# Weight 1.0: Treats it as fully important; it contributes equally as the base diffusion loss (roughly) to the total gradient update.
+
+
+# 2. grad: 0.5
+
+# Applies to: grad_pixel_wise_closest_sr_sits_aer_loss(x0_pred, img_hr, closest_idx)
+# Meaning: This encourages spatial gradient (edges) consistency, making edges in the SR image sharper and more aligned with HR reference.
+# Weight 0.5: Half as important as the pixel-wise loss. Strong enough to improve edge fidelity but not so strong that it dominates training.
+
+
+# 3. temp: 0.2
+
+# Applies to: temp_consistency_gradient_magnitude_loss(x0_pred)
+# Meaning: Ensures temporal smoothness across the SR satellite image time series by penalizing sudden changes in gradient magnitude between frames.
+# Weight 0.2: Smaller because temporal consistency is important but should not over-smooth, which could erase dynamic changes in the scene.
+
+
+# 4. gray: 1.0
+
+# Applies to: gray_value_consistency_loss(x0_pred, img_lr)
+# Meaning: Ensures that when your SR output is downsampled, it matches the low-resolution input. This preserves spectral information and prevents hallucination.
+# Weight 1.0: Treat it as equally important as the pixel-wise alignment; ensures your SR images are consistent with measured LR data.
+
+
+# Why these values? the pixel-wise and gray consistency are centerpieces (spectral &
+#  geometric), gradient helps edges but is more easily amplified so start smaller, and 
+#  temporal regularizer usually needs the smallest weight to avoid over-smoothing dynamics.
+
+
+# Normalize by observed loss magnitudes (fast & effective)
+
+# For a short warm-up (e.g., 1 epoch or ~500 batches) record moving averages of:
+
+# L_diff (diffusion loss) and each auxiliary loss L_i.
+
+# Decide what fraction of the total objective you want each auxiliary to occupy relative to the diffusion term. Example target fractions α:
+
+# pixel: 0.15, grad_px: 0.05, temp_grad: 0.05, gray: 0.10 → total α = 0.35
+# (meaning auxiliaries together should be ~35% of diffusion loss magnitude)
+
+# Compute weights per auxiliary:
+
+# 𝜆
+# 𝑖
+# =
+# 𝛼
+# 𝑖
+# ⋅
+# 𝐿
+# diff
+# ‾
+# 𝐿
+# 𝑖
+# ‾
+# +
+# 𝜀
+# λ
+# i
+# 	​
+
+# =
+# L
+# i
+# 	​
+
+# 	​
+
+# +ε
+# α
+# i
+# 	​
+
+# ⋅
+# L
+# diff
+# 	​
+
+# 	​
+
+# 	​
+
+
+# Use a small ε (e.g. 1e-8) to avoid division by zero. Update these λ every epoch (or every few epochs) using moving averages.
+
+# This yields scale-invariant weights that adapt to your loss magnitudes.

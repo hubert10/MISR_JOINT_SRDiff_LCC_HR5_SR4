@@ -1,0 +1,22 @@
+base_config:
+  - ../sr_base.yaml
+  - ../df2k4x.yaml
+trainer_cls: tasks.highresnet_ltae.HighResNetLTAETrainer
+# model
+hidden_size: 64
+lr: 0.0007
+num_block: 17
+
+# train and eval
+max_updates: 4
+batch_size: 2
+eval_batch_size: 2
+test_batch_size: 1
+val_check_interval: 1
+save_ckpt_interval: 1
+train_diffsr: false
+test_diff: false
+save_intermediate: false
+max_s2_images: 8
+misr_ref_image: closest
+
