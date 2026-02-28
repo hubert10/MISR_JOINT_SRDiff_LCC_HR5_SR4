@@ -21,8 +21,8 @@ sys.path.append(
 DATA_DIR = "D:\kanyamahanga\Datasets"
 BIGWORK_DIR = "D:\kanyamahanga\Bigwork"
 flair_aerial_path = DATA_DIR + "/FLAIR/flair_aerial_test/"
-msk_folder_aerial = BIGWORK_DIR + "/MISR_JOINT_SRDiff_LCC/PR/"
-pred_folder_aerial = BIGWORK_DIR + "/MISR_JOINT_SRDiff_LCC/results"
+msk_folder_aerial = BIGWORK_DIR + "/MISR_JOINT_SRDiff_LCC_HR5_SR4/PR/"
+pred_folder_aerial = BIGWORK_DIR + "/MISR_JOINT_SRDiff_LCC_HR5_SR4/results"
 
 # path to destination folders
 test_folder_aerial = os.path.join(flair_aerial_path, "D022_2021/Z14_UU/img")

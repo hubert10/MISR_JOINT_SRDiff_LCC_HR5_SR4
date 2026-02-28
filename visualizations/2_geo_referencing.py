@@ -21,7 +21,7 @@ from make_dir import create_dir
 
 # converts from png to tiff
 
-PROJECT_ROOT = "D:\kanyamahanga\Bigwork\MISR_JOINT_SRDiff_LCC"
+PROJECT_ROOT = "D:\kanyamahanga\Bigwork\MISR_JOINT_SRDiff_LCC_HR5_SR4"
 
 
 def convert_img_to_tif_and_save(input_img, save_path, georef_img_tif, idx):

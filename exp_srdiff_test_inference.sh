@@ -1,5 +1,5 @@
 #!/bin/bash 
-#SBATCH --job-name=exp_misr_joint_srdiff_lcc_test_inference_maxvit_hr5_maxvit_sr4_caf_focal_all
+#SBATCH --job-name=exp_MISR_JOINT_SRDiff_LCC_HR5_SR4_test_inference_maxvit_hr5_maxvit_sr4_caf_focal_all
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -9,12 +9,12 @@
 #SBATCH --time=30:00:00
 #SBATCH --mail-user=kanyamahanga@ipi.uni-hannover.de
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --output logs/exp_misr_joint_srdiff_lcc_test_inference_maxvit_%j.out
-#SBATCH --error logs/exp_misr_joint_srdiff_lcc_test_inference_maxvit_%j.err
+#SBATCH --output logs/exp_MISR_JOINT_SRDiff_LCC_HR5_SR4_test_inference_maxvit_%j.out
+#SBATCH --error logs/exp_MISR_JOINT_SRDiff_LCC_HR5_SR4_test_inference_maxvit_%j.err
 source load_modules.sh
 export CONDA_ENVS_PATH=$HOME/.conda/envs
 export DATA_DIR=$BIGWORK
 conda activate flair_venv
 which python
-cd $HOME/MISR_JOINT_SRDiff_LCC
-srun python trainer.py --config configs/diffsr_maxvit_ltae.yaml --config_file flair-config-server.yml --exp_name misr/srdiff_maxvit_ltae_ckpt --hparams="diff_net_ckpt=/bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC/results/checkpoints/misr/srdiff_maxvit_ltae_ckpt" --infer
+cd $HOME/MISR_JOINT_SRDiff_LCC_HR5_SR4
+srun python trainer.py --config configs/diffsr_maxvit_ltae.yaml --config_file flair-config-server.yml --exp_name misr/srdiff_maxvit_ltae_ckpt --hparams="diff_net_ckpt=/bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC_HR5_SR4/results/checkpoints/misr/srdiff_maxvit_ltae_ckpt" --infer

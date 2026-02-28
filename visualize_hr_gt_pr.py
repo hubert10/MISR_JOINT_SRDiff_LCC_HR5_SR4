@@ -180,7 +180,7 @@ def plot_random_hr_lr_sr(hr_root, pr_root):
     plt.show()
 
 
-root_folder = "D:\\kanyamahanga\\Bigwork\\MISR_JOINT_SRDiff_LCC\\"
+root_folder = "D:\\kanyamahanga\\Bigwork\\MISR_JOINT_SRDiff_LCC_HR5_SR4\\"
 img_root_folder = "D:\\kanyamahanga\\Datasets\\FLAIR_FN\\flair_aerial_test\\"
 msk_root_folder = "D:\\kanyamahanga\\Datasets\\FLAIR_FN\\flair_labels_test\\"
 plot_random_hr_lr_sr(hr_root=img_root_folder, pr_root=root_folder + "PR")
