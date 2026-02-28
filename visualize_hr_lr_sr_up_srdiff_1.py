@@ -112,10 +112,10 @@ def plot_image_series(hr_image, lowres_images, bicubic_images, sr_images):
     plt.show()
 
 
-# ref_hr_image = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_SRDiff\\HR\\"
-# lowres_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_SRDiff\\LR\\"
-# bicubic_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_SRDiff\\UP\\"
-# sr_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_SRDiff\\SR\\"
+# ref_hr_image = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_SRDiff\\HR\\"
+# lowres_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_SRDiff\\LR\\"
+# bicubic_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_SRDiff\\UP\\"
+# sr_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_SRDiff\\SR\\"
 
 ref_hr_image = "D:\\kanyamahanga\\Datasets\\MISR_S2_Aer_LCC_X10_MI_MO_Exp_AUX_Revised_Diff_Denoising_Spec_Matching_Multi_Res\\HR\\"
 lowres_folder = "D:\\kanyamahanga\\Datasets\\MISR_S2_Aer_LCC_X10_MI_MO_Exp_AUX_Revised_Diff_Denoising_Spec_Matching_Multi_Res\\LR\\"

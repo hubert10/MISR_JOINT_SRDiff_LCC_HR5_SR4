@@ -108,6 +108,8 @@ num_nodes: 1
 strategy: auto # ddp # ddp if multi-gpu
 # The "auto" option recognizes the machine you are on, and selects the appropriate Accelerator.
 
+cond_net_ckpt: "D:\\kanyamahanga\\Datasets\\pretrain_weights\\pretrain_weights\\LCC_SITS_MaxViT_UPerNet\\checkpoints\\last.ckpt"
+
 # Training and evaluation
 mode: "train" # ["train", "eval" ]
 norm_type: "scale" # ["scale", "min-max", "mean-std"]

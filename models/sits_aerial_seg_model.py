@@ -1,3 +1,4 @@
+import os
 import torch
 import timm
 from torch import nn
@@ -40,6 +41,18 @@ class SITSAerialSegmenter(nn.Module):
             d_model=config["d_model"],
             config=config,
         )
+
+        if not hparams["resume"]:
+            if hparams["cond_net_ckpt"] != "" and os.path.exists(hparams["cond_net_ckpt"]):
+                weights_path = hparams["cond_net_ckpt"]
+                if torch.cuda.is_available():
+                    old_dict = torch.load(weights_path, weights_only=False)
+                else:
+                    old_dict = torch.load(weights_path, map_location=torch.device("cpu"))
+                model_dict = self.sits_net.state_dict()
+                old_dict = {k: v for k, v in old_dict.items() if (k in model_dict)}
+                model_dict.update(old_dict)
+                self.sits_net.load_state_dict(model_dict)
 
         # 2. Aerial Encoder
         self.aerial_net = timm.create_model(

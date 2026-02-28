@@ -4,7 +4,7 @@ USED O.S: Linux
 [;33;maccelerator[0m: gpu, [;33;maccumulate_grad_batches[0m: 1, [;33;mamp[0m: False, [;33;maux_l1_loss[0m: True, [;33;maux_percep_loss[0m: False, 
 [;33;maux_ssim_loss[0m: False, [;33;maverage_month[0m: True, [;33;mbackbone_lr[0m: 6e-05, [;33;mbackbone_weight_decay[0m: 0.00025, [;33;mbase_config[0m: ['./diffsr_base.yaml', './df2k4x.yaml'], 
 [;33;mbatch_size[0m: 5, [;33;mbeta_end[0m: 0.02, [;33;mbeta_s[0m: 0.008, [;33;mbeta_schedule[0m: cosine, [;33;mbinary_data_dir[0m: data/binary/df2k4x, 
-[;33;mcheck_val_every_n_epoch[0m: 10, [;33;mclip_grad_norm[0m: 10, [;33;mclip_input[0m: True, [;33;mcond_net_ckpt[0m: /bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC_HR5_SR4/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt, [;33;mconfig_file[0m: flair-config-server.yml, 
+[;33;mcheck_val_every_n_epoch[0m: 10, [;33;mclip_grad_norm[0m: 10, [;33;mclip_input[0m: True, [;33;mcond_net_ckpt[0m: /bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt, [;33;mconfig_file[0m: flair-config-server.yml, 
 [;33;mconv_spa_att[0m: True, [;33;mcrop_size[0m: 320, [;33;mdata[0m: {'path_aerial_train': 'FLAIR/flair_aerial_train/', 'path_sen_train': 'FLAIR/flair_sen_train/', 'path_labels_train': 'FLAIR/flair_labels_train/', 'path_aerial_test': 'FLAIR/flair_aerial_test/', 'path_sen_test': 'FLAIR/flair_sen_test/', 'path_labels_test': 'FLAIR/flair_labels_test/', 'path_sp_centroids': 'FLAIR/flair_centroids_sp_to_patch.json', 'path_metadata_aerial': 'FLAIR/flair_aerial_metadata.json'}, [;33;mdata_augmentation[0m: False, [;33;mdata_interp[0m: bicubic, 
 [;33;mdebug[0m: False, [;33;mdecay_steps[0m: 100000, [;33;mdecoder_channels[0m: 256, [;33;mdenoise_fn[0m: unet, [;33;mdepths[0m: [2, 2, 6], 
 [;33;mdropout[0m: 0.2, [;33;mds_workers[0m: 1, [;33;membed_dim[0m: 64, [;33;mendless[0m: False, [;33;meval_batch_size[0m: 5, 
@@ -15,7 +15,7 @@ USED O.S: Linux
 [;33;mmax_updates[0m: 400000, [;33;mmerge_after_stage[0m: 1, [;33;mmisr[0m: True, [;33;mmisr_ref_image[0m: closest, [;33;mmlp_ratio[0m: 4.0, 
 [;33;mmode[0m: train, [;33;mnbts[0m: 3, [;33;mnorm_type[0m: scale, [;33;mnum_channels_aer[0m: 5, [;33;mnum_channels_sat[0m: 4, 
 [;33;mnum_ckpt_keep[0m: 100, [;33;mnum_classes[0m: 13, [;33;mnum_heads[0m: [2, 4, 8], [;33;mnum_nodes[0m: 1, [;33;mnum_sanity_val_steps[0m: 4, 
-[;33;mnum_workers[0m: 8, [;33;moutputs[0m: {'out_folder': '/bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC_HR5_SR4/results/', 'out_model_name': 'misr-s2-aer-seg'}, [;33;mpad_value[0m: 0, [;33;mpadding_mode[0m: reflect, [;33;mpatch_size[0m: 160, 
+[;33;mnum_workers[0m: 8, [;33;moutputs[0m: {'out_folder': '/bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC/results/', 'out_model_name': 'misr-s2-aer-seg'}, [;33;mpad_value[0m: 0, [;33;mpadding_mode[0m: reflect, [;33;mpatch_size[0m: 160, 
 [;33;mpool_scales[0m: (1, 2, 3), [;33;mpred_noise[0m: True, [;33;mprint_arch[0m: False, [;33;mprint_nan_grads[0m: False, [;33;mpx_loss_weight[0m: 1.0, 
 [;33;mref_date[0m: 05-15, [;33;mref_year[0m: 2021, [;33;mres[0m: True, [;33;mres_rescale[0m: 2.0, [;33;mresume[0m: False, 
 [;33;mresume_from_checkpoint[0m: 0, [;33;mrrdb_num_block[0m: 17, [;33;mrrdb_num_feat[0m: 64, [;33;msat_patch_size[0m: 40, [;33;msat_reflectance_infer[0m: 2000, 
@@ -28,7 +28,7 @@ USED O.S: Linux
 [;33;muse_augmentation[0m: True, [;33;muse_aux_loss[0m: True, [;33;muse_highresnet_ltae[0m: True, [;33;muse_metadata[0m: True, [;33;muse_rrdb_ltae[0m: False, 
 [;33;muse_wn[0m: False, [;33;mval_check_interval[0m: 400000, [;33;mval_percent[0m: 0.9, [;33;mvalid_monitor_key[0m: val_loss, [;33;mvalid_monitor_mode[0m: min, 
 [;33;mvalid_steps[0m: 4, [;33;mvalidate[0m: False, [;33;mweight_decay[0m: 0.00025, [;33;mweight_init[0m: False, [;33;mweights_aer_sat[0m: {'building': 0.1, 'pervious surface': 0.51101696, 'impervious surface': 0.40512797, 'bare soil': 0.65678436, 'water': 0.60888594, 'coniferous': 0.73641235, 'deciduous': 0.385543, 'brushwood': 0.5410278, 'vineyard': 0.73730785, 'herbaceous vegetation': 0.34869152, 'agricutural land': 0.43978617, 'plowed land': 0.6750025, 'other': 1}, 
-[;33;mwindow_size[0m: 8, [;33;mwork_dir[0m: /bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC_HR5_SR4/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt, Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+[;33;mwindow_size[0m: 8, [;33;mwork_dir[0m: /bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt, Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
 Loading model from: /home/nhgnkany/.conda/envs/flair_venv/lib/python3.10/site-packages/lpips/weights/v0.1/alex.pth
 
 +================================================================================+
@@ -126,8 +126,8 @@ Model name: misr-s2-aer-seg
 ┣━━ sits_temp_merging: mean
 ┣━━ resume: False
 ┗━━ debug: False
-| load 'model' from '/bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC_HR5_SR4/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt/model_ckpt_steps_225000.ckpt'.
-work_dir where to load weights: /bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC_HR5_SR4/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt
+| load 'model' from '/bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt/model_ckpt_steps_225000.ckpt'.
+work_dir where to load weights: /bigwork/nhgnkany/Results/MISR_JOINT_SRDiff_LCC/results/checkpoints/misr/srdiff_highresnet_ltae_ckpt
 {'psnr': 13.31270565623728, 'ssim': 0.4227799545175049, 'lpips': 0.48760563135147095, 'mae': 46.1923828125, 'mse': 3032.562744140625, 'shift_mae': 45.345942330558856, 'miou': 0.6763951778411865} total: 1
 {'psnr': 11.29939111944353, 'ssim': 0.38395897060971496, 'lpips': 0.46619363129138947, 'mae': 64.99380493164062, 'mse': 5348.433197021484, 'shift_mae': 63.51843043995244, 'miou': 0.6776518821716309} total: 2
 {'psnr': 11.348949383201642, 'ssim': 0.353860538583161, 'lpips': 0.48376267155011493, 'mae': 62.97705078125, 'mse': 5118.5544026692705, 'shift_mae': 61.375842251288155, 'miou': 0.5936614175637563} total: 3

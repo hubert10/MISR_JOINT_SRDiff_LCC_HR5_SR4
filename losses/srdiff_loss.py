@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torchvision.transforms as cT
 from utils.utils_dataset import downsample_sr_image
 
-# 1. Pixelwise L1 Loss Function
+# 1.  Radiommetric Pixelwise L1 Loss Function
 # This loss function computes the pixel-wise L1 loss between the
 # HR reference image and the closest predicted SR image acquisition
 # Notes: Pixel-wise loss often lacks high-frequency structure
@@ -68,13 +68,13 @@ def compute_gradient(img):
         [[-1.0, 0.0, 1.0], [-2.0, 0.0, 2.0], [-1.0, 0.0, 1.0]],
         device=img.device,
         dtype=img.dtype,
-    ).reshape(1, 1, 3, 3)
+    ).reshape(1, 1, 3, 3) / 8
 
     sobel_y = torch.tensor(
         [[-1.0, -2.0, -1.0], [0.0, 0.0, 0.0], [1.0, 2.0, 1.0]],
         device=img.device,
         dtype=img.dtype,
-    ).reshape(1, 1, 3, 3)
+    ).reshape(1, 1, 3, 3) / 8
 
     B, C, H, W = img.shape
 
@@ -143,11 +143,11 @@ def compute_gradient_magnitude(image):
     # Define Sobel kernels
     sobel_x = torch.tensor([[-1.0, 0.0, 1.0], [-2.0, 0.0, 2.0], [-1.0, 0.0, 1.0]]).view(
         1, 1, 3, 3
-    )
+    ) # / 8
 
     sobel_y = torch.tensor([[-1.0, -2.0, -1.0], [0.0, 0.0, 0.0], [1.0, 2.0, 1.0]]).view(
         1, 1, 3, 3
-    )
+    ) # / 8
 
     # Repeat kernels for depthwise conv (1 per channel)
     sobel_x = sobel_x.repeat(C, 1, 1, 1).to(image.device)

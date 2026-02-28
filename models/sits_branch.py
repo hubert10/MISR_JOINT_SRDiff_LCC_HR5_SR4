@@ -91,4 +91,8 @@ class SITSSegmenter(nn.Module):
         sits_logits, multi_lvls_cls = self.sr_decoder(red_temp_feats, h, w)
         # print(" ----------- sits_logits: ", sits_logits.shape)
         # sits_logits:  torch.Size([2, 13, 64, 64])
+
+        
+        # Unlike Kanyamahanga et al. 2025, we do not merge the features of different
+        # epochs at the end of the decoder (enc_temp_feats). 
         return sits_logits, multi_lvls_cls, red_temp_feats, enc_temp_feats

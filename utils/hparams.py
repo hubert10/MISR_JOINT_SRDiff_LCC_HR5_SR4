@@ -47,6 +47,8 @@ def set_hparams(
         parser.add_argument("--validate", action="store_true", help="validate")
         parser.add_argument("--reset", action="store_true", help="reset hparams")
         parser.add_argument("--debug", action="store_true", help="debug")
+        parser.add_argument("--resume", action="store_true", help="resume")
+
         args, unknown = parser.parse_known_args()
         print("| Unknow hparams: ", unknown)
     else:
@@ -59,6 +61,8 @@ def set_hparams(
             validate=False,
             reset=False,
             debug=False,
+            resume=False,
+
         )
     global hparams
     assert args.config != "" or args.config_file != "" or args.exp_name != ""
@@ -146,6 +150,7 @@ def set_hparams(
     hparams_["validate"] = args.validate
     hparams_["exp_name"] = args.exp_name
     hparams_["config_file"] = args.config_file
+    hparams_["resume"] = args.resume
 
     global global_print_hparams
     if global_hparams:

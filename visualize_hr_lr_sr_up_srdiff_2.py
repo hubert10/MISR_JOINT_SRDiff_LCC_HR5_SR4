@@ -112,15 +112,15 @@ def plot_image_series(hr_image, lowres_images, bicubic_images, sr_images):
     plt.show()
 
 
-# ref_hr_image = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_SRDiff\\HR\\"
-# lowres_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_SRDiff\\LR\\"
-# bicubic_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_SRDiff\\UP\\"
-# sr_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_SRDiff\\SR\\"
+# ref_hr_image = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_SRDiff\\HR\\"
+# lowres_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_SRDiff\\LR\\"
+# bicubic_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_SRDiff\\UP\\"
+# sr_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_SRDiff\\SR\\"
 
-ref_hr_image = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_Revised_Diff_Denoising_1000Steps\\HR\\"
-lowres_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_Revised_Diff_Denoising_1000Steps\\LR\\"
-bicubic_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_Revised_Diff_Denoising_1000Steps\\UP\\"
-sr_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_HR5_SR4_Revised_Diff_Denoising_1000Steps\\SR\\"
+ref_hr_image = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_Revised_Diff_Denoising_1000Steps\\HR\\"
+lowres_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_Revised_Diff_Denoising_1000Steps\\LR\\"
+bicubic_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_Revised_Diff_Denoising_1000Steps\\UP\\"
+sr_folder = "D:\\kanyamahanga\\Datasets\\MISR_JOINT_SRDiff_LCC_Revised_Diff_Denoising_1000Steps\\SR\\"
 
 # === Load and Visualize ===
 ref_hr_image = load_images_from_folder(ref_hr_image, prefix)

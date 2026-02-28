@@ -614,43 +614,12 @@ if __name__ == "__main__":
 
 # Contributions:
 
-# 1. Auxiliary Losses
+# Included using the pretrained SITS weights for initializing Feature Extractor Network
 
-# “We incorporate four auxiliary losses to guide the diffusion-based SR training:
-# (i) a cross-sensor pixel alignment loss with high-resolution aerial references,
-# (ii) a spatial gradient consistency loss to preserve edges,
-# (iii) a temporal gradient magnitude loss to enforce smooth dynamics across the time series,
-# (iv) a gray-value consistency loss to ensure spectral agreement with the low-resolution input.”
+# python trainer.py --config configs_loc/diffsr_maxvit_ltae.yaml --config_file flair-config.yml --exp_name misr/srdiff_maxvit_ltae_ckpt  --reset
 
 
-# Breakdown of each auxiliary loss
+# IMPORTANT DETAILS TO BE CHECKED
 
-# 1. Pixel-wise closest SR–aerial consistency loss
-# pixel_wise_closest_sr_sits_aer_loss(x0_pred, img_hr, closest_idx)
-# Ensures that the super-resolved time series frame is consistent with its closest high-resolution aerial reference.
-# Encourages cross-sensor alignment at the pixel level.
-
-# 2. Gradient-based spatial detail preservation
-# grad_pixel_wise_closest_sr_sits_aer_loss(x0_pred, img_hr, closest_idx)
-# Weighted by hparams["grad_px_loss_weight"].
-# Matches spatial gradients between SR output and HR aerial reference.
-# Helps preserve edges and fine details (sharpness).
-
-# 3. Temporal gradient magnitude consistency
-# temp_gradient_magnitude_consistency_loss(x0_pred)
-# Weighted by hparams["temp_grad_mag_loss_weight"].
-# Encourages temporal smoothness by penalizing sudden changes in gradient magnitude across the time series.
-# Acts as a temporal regularizer to prevent flickering artifacts.
-
-# 4. Gray-value consistency with low-resolution inputs
-# gray_value_consistency_loss(x0_pred, img_lr)
-# Weighted by hparams["gray_value_px_loss_weight"].
-# Ensures that when downsampled, the SR images remain consistent with the observed LR sequence.
-# Preserves spectral fidelity and avoids hallucinations.
-
-
-# python trainer.py --config configs/misr/pretrain.yaml --config_file flair-config.yml --exp_name misr/highresnet_ltae_ckpt --reset
-# python trainer.py --config configs/diffsr_highresnet_ltae.yaml --config_file flair-config.yml --exp_name misr/srdiff_highresnet_ltae_ckpt --hparams="cond_net_ckpt=./results/checkpoints/misr/highresnet_ltae_ckpt" --reset
-
-
-# python trainer.py --config configs/diffsr_highresnet_ltae.yaml --config_file flair-config.yml --exp_name misr/srdiff_highresnet_ltae_ckpt --hparams="cond_net_ckpt=D:\kanyamahanga\Datasets\pretrain_weights\LCC_SITS_MaxViT_UNet\checkpoints\ckpt-epoch=06-val_loss=1.36-val_miou=0.34_maxvit-unet-seg.ckpt" --reset
+# We should check whether the E_SR Feature Extractor network is initiazed with the pretrained
+# E_C encoder
